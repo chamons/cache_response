@@ -121,4 +121,18 @@ mod test {
             "1".as_bytes().to_vec()
         );
     }
+
+    #[test]
+    fn stores_uuid() {
+        let test = TestHarness::new();
+
+        let data = uuid::Uuid::new_v4();
+
+        let fetched_data = test
+            .cache
+            .get("1", || Ok(data.as_bytes().to_vec()))
+            .unwrap();
+
+        assert_eq!(uuid::Uuid::from_slice(&fetched_data).unwrap(), data);
+    }
 }
