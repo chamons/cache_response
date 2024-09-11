@@ -31,7 +31,7 @@ impl ResponseCache {
         let cache_row = query.next()?;
 
         match cache_row {
-            Some(cache_row) => return Ok(cache_row.get(0)?),
+            Some(cache_row) => Ok(cache_row.get(0)?),
             None => {
                 let value = fetch()?;
 
