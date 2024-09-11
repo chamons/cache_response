@@ -1,0 +1,11 @@
+[package]
+name = "cache_response"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eyre = "0.6.12"
+rusqlite = { version = "0.32.1", features = ["bundled"] }
+
+[dev-dependencies]
+tempfile = "3.12.0"
